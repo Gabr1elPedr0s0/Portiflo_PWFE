@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+ 
+</head>
+<body>
+    <style>
+        body {
+    text-align: center;
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+  }
+ 
+  h1 {
+    color: #333;
+  }
+ 
+  input, button {
+    margin: 10px;
+    padding: 5px;
+  }
+ 
+  button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+ 
+  p {
+    font-size: 18px;
+    font-weight: bold;
+  }
+    </style>
+  <h1>Conversor de Tempo</h1>
+  <input type="text" id="hour" placeholder="Hora">
+  <input type="text" id="minutes" placeholder="Minutos">
+  <button onclick="convertTime()">Converter</button>
+  <p id="result"></p>
+
+  <script>
+    function convertTime() {
+    var hourInput = document.getElementById("hour").value;
+    var minutesInput = document.getElementById("minutes").value;
+ 
+    var convertedTime = convertTo12Hour(hourInput, minutesInput);
+    document.getElementById("result").innerHTML = convertedTime;
+  }
+ 
+  function convertTo12Hour(hour, minutes) {
+    var period = "A.M.";
+ 
+    if (hour >= 12) {
+      period = "P.M.";
+    }
+ 
+    if (hour > 12) {
+      hour -= 12;
+    }
+ 
+    return hour + ":" + minutes + " " + period;
+  }
+  </script>
+</body>
+</html>

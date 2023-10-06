@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+ 
+</head>
+<body>
+    <style>body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        padding: 20px;
+      }
+     
+      h1 {
+        text-align: center;
+      }
+     
+      .form {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        margin: 0 auto;
+      }
+     
+      label {
+        display: block;
+        margin-bottom: 10px;
+      }
+     
+      input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 20px;
+      }
+     
+      button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+     
+      h3 {
+        margin-top: 20px;
+      }
+     
+      p {
+        font-size: 18px;
+      }</style>
+  <h1>Lanchonete</h1>
+
+  <div class="form">
+    <label for="name">Nome do Cliente:</label>
+    <input type="text" id="name" placeholder="Digite seu nome">
+
+    <label for="product">Código do Produto:</label>
+    <input type="text" id="product" placeholder="Digite o código do produto">
+
+    <label for="quantity">Quantidade:</label>
+    <input type="number" id="quantity" placeholder="Digite a quantidade">
+
+    <button onclick="calculateTotal()">Calcular</button>
+
+    <h3>Total a ser pago:</h3>
+    <p id="total"></p>
+  </div>
+
+  <script>function calculateTotal() {
+    var name = document.getElementById("name").value;
+    var product = document.getElementById("product").value;
+    var quantity = document.getElementById("quantity").value;
+ 
+    var price = 0;
+ 
+    // Lógica para calcular o preço com base no código do produto
+    switch (product) {
+      case "1":
+        price = 5.99;
+        break;
+      case "2":
+        price = 3.99;
+        break;
+      case "3":
+        price = 2.99;
+        break;
+      // Adicione mais cases para outros produtos, se necessário
+    }
+ 
+    var total = price * quantity;
+ 
+    document.getElementById("total").innerHTML = "Cliente: " + name + "<br>Total a ser pago: R$ " + total.toFixed(2);
+  }</script>
+</body>
+</html>
